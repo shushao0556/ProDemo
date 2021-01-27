@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--依赖注入-->
+    <!--set方法注入-->
+    <bean class="entity.Car" name="car">
+        <property name="name" value="polo"/>
+        <property name="no" value="1"/>
+        <property name="red" value="red"/>
+        <property name="money" value="50000"/>
+    </bean>
+    <bean class="entity.Emp" name="emp">
+        <property name="cars" ref="car"/>
+        <property name="id" value="1"/>
+        <property name="name" value="admin"/>
+        <property name="salary" value="5000"/>
+        <property name="sex" value="男"/>
+        <property name="birthday" value="1999/11/02"/>
+        <property name="hobbies">
+            <list>
+                <value>篮球</value>
+                <value>桌球</value>
+                <value>羽毛球</value>
+                <value>足球</value>
+            </list>
+        </property>
+    </bean>
+    <!--构造方法注入-->
+    <bean class="entity.Car" name="car2">
+        <constructor-arg value="2" name="No"/>
+        <constructor-arg name="money" value="3000"/>
+        <constructor-arg name="name" value="golf"/>
+        <constructor-arg name="red" value="white"/>
+    </bean>
+    <bean class="entity.Emp" name="emp2">
+        <constructor-arg name="id" value="2"/>
+        <constructor-arg name="name" value="admin2"/>
+        <constructor-arg name="sex" value="女"/>
+        <constructor-arg name="salary" value="7000"/>
+        <constructor-arg name="birthday" value="2020/01/01"/>
+        <constructor-arg name="cars" ref="car2"/>
+        <constructor-arg name="hobbies">
+            <list>
+                <value>画画</value>
+                <value>唱歌</value>
+                <value>写字</value>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
