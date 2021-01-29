@@ -2,3 +2,8 @@
 - mybatis
 - spring
 - springMVC
+
+<hr>
+微服务架构  
+
+ - Redis
