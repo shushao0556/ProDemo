@@ -3,9 +3,9 @@ import org.junit.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-public class Demo4 {
+public class Demo6 {
     @Test
-    public void pool(){
+    public void auth(){
         //1. 创建连接池配置信息
         GenericObjectPoolConfig pc=new GenericObjectPoolConfig();
         pc.setMaxTotal(100);//连接池中最大的活跃数
@@ -14,11 +14,8 @@ public class Demo4 {
         pc.setMaxWaitMillis(3000);//当连接池空了以后，多久没获得到jedis对象，就超时
         //2. 创建连接池
         JedisPool jp=new JedisPool(pc,"192.168.2.123",6379,3000,"redis");
-        //3. 通过连接池获取 jedis 对象
         Jedis jedis = jp.getResource();
-        //4. 操作
-        String value = jedis.get("stringUser");
-        System.out.println("User:" + value);
-        jp.close();
+        jedis.set("name", "admin888");
+        jedis.close();
     }
 }

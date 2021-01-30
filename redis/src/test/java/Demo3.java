@@ -10,7 +10,7 @@ public class Demo3 {
     @Test
     public void setString(){
         //1.连接 Redis
-        Jedis jedis=new Jedis("192.168.2.123",6379);
+        Jedis jedis=new Jedis("192.168.2.123",6349);
         //2.1 准备key(String)-->value(User)
         String stringKey="stringUser";
         User value=new User(2,"admin2","女",new Date(),6666.66);
