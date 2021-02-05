@@ -1,0 +1,8 @@
+mybatis:
+  # 扫描映射文件
+  mapper-locations: classpath:mapper/*.xml
+  # 配置别名扫描的包
+  type-aliases-package: com.evshou.admin.firstspringboot.entity
+  configuration:
+    # 开启驼峰映射配置
+    map-underscore-to-camel-case: true
